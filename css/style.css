@@ -1,0 +1,323 @@
+body {
+  background-color: #f8f9fa;
+  line-height: 1.5;
+  font-size: 0.875rem;
+  font-weight: normal;
+  font-family: "Poppins", sans-serif;
+  color: #212529;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: "Montserrat", sans-serif;
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+p{ margin-bottom: 0.625rem; }
+
+/*оболочка*/
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/*прижать footer вниз*/
+.wrapper > main {
+  flex: 1 1 auto;
+}
+
+/*ограничивающий контейнер из bootstrap*/
+/*
+Стили будут применяться ко всем классам содержащим *__container
+Например header__container, page__container и т.д.
+*/
+[class*=__container] {
+  --g-x: 0.75rem;
+  margin: 0 auto;
+  padding: 0 var(--g-x); /* отступы безопасности по 12px слева и справа */
+  width: 100%;
+}
+@media (min-width: 576px) {
+  [class*=__container] {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  [class*=__container] {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  [class*=__container] {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  [class*=__container] {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  [class*=__container] {
+    max-width: 1320px;
+  }
+}
+[class*=__row] {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+  margin-right: calc(-1 * var(--g-x)); /* (-0.75) отступ безопасности у __container */
+  margin-left: calc(-1 * var(--g-x)); /* (-0.75) отступ безопасности у __container */
+}
+[class*=__row] > * {
+  flex-shrink: 0; /* flex элементу запрещено уменьшаться его базового размера */
+  width: 100%;
+  max-width: 100%;
+  padding-right: var(--g-x); /* отступ безопасности у __container */
+  padding-left: var(--g-x); /* отступ безопасности у __container */
+  margin-top: 0;
+}
+[class*=__column-1]{ /*одна колонка в ряду*/
+	flex: 0 0 auto;
+	width: 100%
+}
+[class*=__column-2]{ /*две колонки в ряду*/
+	flex: 0 0 auto;
+	width: 50%
+}
+[class*=__column-3]{ /*три колонки в ряду*/
+	flex: 0 0 auto;
+	width: calc(100% / 3);
+}
+
+
+@media (max-width: 576px) {
+	[class*=__column-sm-1]{
+		flex: 0 0 auto!important;
+		width: 100%!important;
+	}
+}
+
+@media (max-width: 991.98px){
+	[class*=__column-lg-1]{
+		flex: 0 0 auto;
+		width: 100%
+	}
+	[class*=__column-lg-2]{
+		flex: 0 0 auto;
+		width: calc(100% / 2);
+	}
+}
+/* =============================================================================== */
+.page__title{
+	font-size: clamp(20px, calc(24px + (44 - 20) * ((100vw - 320px) / (1320 - 320))), 44px);
+	text-align: center;
+}
+.pt-50{
+	padding-top: 3.125rem;
+}
+.mb-20{
+	margin-bottom: 1.25rem;
+}
+
+
+
+.card{ /*контейнер для карточки*/
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	min-width: 0;
+	height: 100%;
+	word-wrap: break-word;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 0 solid #d9dee3;
+	border-radius: 0.5rem;
+	box-shadow: 0 2px 6px 0 rgba(67, 89, 113, 0.12);
+	margin: 0 .5rem;
+}
+.card--row{
+	flex-direction: row;
+}
+img{
+	width: 100%;
+}
+.card-header{
+	flex: 1 1 auto;
+	padding: .5rem 1.5rem;	
+}
+.card-header > .card-title{
+	margin-bottom: 0.5rem;
+}
+.card-header > .card-subtitle{
+	color: #515454;
+	margin-bottom: 0.25rem;
+}
+.card-body{
+	flex: 1 1 auto;
+	padding: 1.5rem 1.5rem;	
+}
+.card-body > .card-header{
+	padding: 0 0 .5rem 0;
+}
+.card-body > .card__block-img > .card-img{
+	margin: 1rem auto;
+	transform: none;
+}
+.card-title{
+	margin-bottom: 0.875rem;
+	font-size: 1.25rem;
+}
+.card-text{
+	margin-bottom: .875rem;
+}
+.card-footer{
+	padding: 0 1.5rem 1.5rem 1.5rem;
+}
+.card-link{
+	color: #f78e98;
+	transition: .3s;
+}
+.card-link:hover{
+	color: #dc3545;
+}
+.card--row .card-body{
+	padding: .5rem 1.5rem 0 1.5rem;
+}
+.card--row .card-title{
+	margin-bottom: 0;
+}
+.card--row .card-text{
+	margin-bottom: 0;
+}
+.card-full-img .card{
+	border-radius: 0.5rem 0.5rem 0 0;
+}
+.card-full-img{
+	overflow: hidden;
+}
+.card-full-img .card-img{
+	transition: .4s;
+}
+.card-full-img .card-img:hover{
+	transform: scale(1.1);
+}
+.card-full-img .card__block-img{
+	position: relative;
+}
+.card-full-img .card-content{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: auto; /*по содержимому*/
+	padding: 1rem;
+	background-color: rgba(33, 37, 41, .7);
+	backdrop-filter: blur(9px);
+	transition: .25s;
+}
+.card-full-img .card-content--bottom{
+	bottom: -100%;
+}
+.card-full-img .card:hover .card-content--bottom{
+	bottom: 0;
+}
+.card-full-img .card-content--top{
+	top: -100%;
+}
+.card-full-img .card:hover .card-content--top{
+	top: 0;
+}
+.card-full-img .card-header,
+.card-full-img .card-footer{
+	padding-left: 0;
+}
+.card-full-img .card-header,
+.card-full-img .card-text{
+	color: #f8f9fa;
+}
+.card-full-img .card-link:hover{
+	color: #ffb0b7;
+}
+.card-overlay .card__block-img{
+	position: relative;
+}
+.card-overlay .card-body{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.card-overlay .card-text{
+	color: #f8f9fa;
+	text-align: center;
+}
+.card-overlay-blur{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(248, 249, 250, .1);
+	backdrop-filter: blur(9px);
+	
+}
+.card-overlay-blur .card-body{
+	z-index: 99;
+}
+.card-overlay-blur .card-text{
+	color: inherit;
+}
+.card-block-text{
+	overflow-y: auto;
+}
+
+.card-overlay{ /*расстянуть внутренний блок по высоте чтобы картинка занимала всю высоту*/
+	height: 100%;
+}
+.card-overlay .card__block-img{ /*расстянуть блок для картинки по высоте чтобы картинка занимала всю высоту*/
+	height: 100%;
+}
+.card-overlay .card__block-img img{ /*расстнянуть картинку по высоте*/
+	object-fit: cover;
+}
+
+.card-img--height{
+	height: 100%;
+}
+
+
+@media (max-width: 576px){
+	.card__block-img--fill{
+		height: 100%
+	}
+	.card__block-img--fill img{
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+
+
+
+
+.footer {
+  height: 2.25rem;
+}
+.footer__container {
+  height: 100%;
+}
+.footer__container span {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.footer__copyright { /*отцентрировать copyright по середине и центру*/
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
